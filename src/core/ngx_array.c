@@ -9,6 +9,7 @@
 #include <ngx_core.h>
 
 
+//alloc n * size B
 ngx_array_t *
 ngx_array_create(ngx_pool_t *p, ngx_uint_t n, size_t size)
 {
@@ -40,10 +41,12 @@ ngx_array_destroy(ngx_array_t *a)
 
     p = a->pool;
 
+    //刚好时pool的最后一块
     if ((u_char *) a->elts + a->size * a->nalloc == p->d.last) {
         p->d.last -= a->size * a->nalloc;
     }
 
+    //刚好时pool的最后一块
     if ((u_char *) a + sizeof(ngx_array_t) == p->d.last) {
         p->d.last = (u_char *) a;
     }

@@ -70,6 +70,7 @@ ngx_time_init(void)
 }
 
 
+//更新所有需要时间的buf
 void
 ngx_time_update(void)
 {
@@ -94,6 +95,7 @@ ngx_time_update(void)
     tp = &cached_time[slot];
 
     if (tp->sec == sec) {
+        //下面不需要msec 直接退出
         tp->msec = msec;
         ngx_unlock(&ngx_time_lock);
         return;
@@ -113,6 +115,7 @@ ngx_time_update(void)
     ngx_gmtime(sec, &gmt);
 
 
+    //update http time 时间
     p0 = &cached_http_time[slot][0];
 
     (void) ngx_sprintf(p0, "%s, %02d %s %4d %02d:%02d:%02d GMT",
