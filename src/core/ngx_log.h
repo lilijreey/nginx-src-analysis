@@ -122,6 +122,8 @@ void ngx_cdecl ngx_log_debug_core(ngx_log_t *log, ngx_err_t err,
 
 #if (NGX_HAVE_VARIADIC_MACROS)
 
+// ngx_log_debugX X 是fmt 的参数
+// 可以不要定义这些
 #define ngx_log_debug0(level, log, err, fmt)                                  \
         ngx_log_debug(level, log, err, fmt)
 

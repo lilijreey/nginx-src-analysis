@@ -1,6 +1,18 @@
 ### Nginx 源码分析
 
-Qus. List
+### nginx 代码的目录结构
+core : 该目录存放core module的代码，也是nginx服务的入口
+http : http core module 的代码，nginx作为web/http proxy server运行时的核心模块
+mail : mail core module 的代码，nginx作为pop3/imap/smtp proxy server运行时的核心模块 ( 不在我们本次研究范围内 )
+event : nginx 自身对事件处理逻辑的封装
+os : nginx对各个平台抽象逻辑的封装
+misc : nginx 的一些utils,定义了test和profiler的一些外围模块的逻辑 
+
+#Nginx 基础数据
++. string:  ngx_str_t src/core/ngx_string.h
+     每个ngx_str_t 都有一个自己的长度和data组成， 
+         len 使用sizeof 在编译期得到长度 
+
 
 1.配置如果解析
 2.内存池如何实现

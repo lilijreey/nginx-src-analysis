@@ -262,6 +262,7 @@ ngx_log_errno(u_char *buf, u_char *last, ngx_err_t err)
 }
 
 
+//@param: prefix log 文件前缀 nginx -p 选项指定
 ngx_log_t *
 ngx_log_init(u_char *prefix)
 {

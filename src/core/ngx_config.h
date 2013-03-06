@@ -95,6 +95,8 @@ typedef intptr_t        ngx_flag_t;
 #endif
 
 #define ngx_align(d, a)     (((d) + (a - 1)) & ~(a - 1))
+// ngx_align_ptr 把得到p的下一个 和a 对齐的地址
+// &~ a-1 把一个数字的低a bit 清零
 #define ngx_align_ptr(p, a)                                                   \
     (u_char *) (((uintptr_t) (p) + ((uintptr_t) a - 1)) & ~((uintptr_t) a - 1))
 
