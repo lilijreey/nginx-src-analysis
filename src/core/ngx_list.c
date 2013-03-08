@@ -35,6 +35,7 @@ ngx_list_create(ngx_pool_t *pool, ngx_uint_t n, size_t size)
 }
 
 
+//返回下一个可插入的地址
 void *
 ngx_list_push(ngx_list_t *l)
 {
@@ -64,6 +65,7 @@ ngx_list_push(ngx_list_t *l)
         l->last = last;
     }
 
+    // find head + alloced memory
     elt = (char *) last->elts + l->size * last->nelts;
     last->nelts++;
 

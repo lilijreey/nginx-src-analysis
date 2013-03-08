@@ -15,7 +15,7 @@
 
 struct ngx_array_s {
     void        *elts; //data buf
-    ngx_uint_t   nelts; //
+    ngx_uint_t   nelts; //已经存放元素的个数
     size_t       size; //per block size
     ngx_uint_t   nalloc; //n block
     ngx_pool_t  *pool; // 为array 分配的pool
